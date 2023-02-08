@@ -1,6 +1,10 @@
 fetch("http://localhost:3000/ramens")
     .then(response => response.json())
     .then(data => {
+        
+        //advanced deliverable 1
+        showMeMyRamen(data[0])
+        
         data.forEach(item => {
             addRamenToMenu(item)
             // console.log(item)
@@ -10,12 +14,15 @@ fetch("http://localhost:3000/ramens")
 
 //global variables (below)
 let ramenMenu = document.querySelector("#ramen-menu")
+
 let detailImage = document.querySelector(".detail-image")
 let detailName = document.querySelector(".name")
 let detailRestaurant = document.querySelector(".restaurant")
 let detailRating = document.querySelector("#rating-display")
 let detailComment = document.querySelector("#comment-display")
+
 let form = document.querySelector("#new-ramen")
+let updateForm = document.querySelector("#edit-ramen")
 
 //function to add ramen to ramen menu
 function addRamenToMenu(item) {
@@ -37,6 +44,7 @@ function showMeMyRamen(item) {
     detailComment.textContent = item.comment
 }
 
+//form submission to add another ramen to the menu
 form.addEventListener("submit", function (e) {
     e.preventDefault()
     let newRamenName = document.querySelector("#new-name")
@@ -54,7 +62,18 @@ form.addEventListener("submit", function (e) {
     }
 
     addRamenToMenu(newRamenObject)
-    
+
     form.reset()
 })
 
+//advanced deliverable number 2 
+updateForm.addEventListener("submit", function(e){
+    e.preventDefault()
+    let updateRating = updateForm.querySelector("#new-rating")
+    let updateComment = updateForm.querySelector("#new-comment")
+
+    detailRating.textContent = updateRating.value
+    detailComment.textContent = updateComment.value
+
+    updateForm.reset()
+})
