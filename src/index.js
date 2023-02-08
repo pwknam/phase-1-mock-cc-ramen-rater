@@ -61,12 +61,23 @@ form.addEventListener("submit", function (e) {
         comment: newRamenComment.value
     }
 
-    addRamenToMenu(newRamenObject)
+    //html way of doing it without a POST request 
+    // addRamenToMenu(newRamenObject)
+
+    //POST request 
+    fetch("http://localhost:3000/ramens", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+        body: JSON.stringify(newRamenObject)
+    })
 
     form.reset()
 })
 
-//advanced deliverable number 2 
+//advanced deliverable number 2 without PATCH request 
 updateForm.addEventListener("submit", function(e){
     e.preventDefault()
     let updateRating = updateForm.querySelector("#new-rating")
@@ -77,3 +88,4 @@ updateForm.addEventListener("submit", function(e){
 
     updateForm.reset()
 })
+

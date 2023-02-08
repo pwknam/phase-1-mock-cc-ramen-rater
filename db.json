@@ -39,6 +39,14 @@
       "image": "./assets/ramen/kojiro.jpg",
       "rating": 6,
       "comment": "Perfect for a cold night."
+    },
+    {
+      "name": "Potato Ramen",
+      "restaurant": "H Mart",
+      "image": "https://cdn.shopify.com/s/files/1/0620/7235/7116/products/hXXHWF3Hoosjhn1s_9c0d2cbd-e4c8-41ea-8e2c-b65930d3dc42.jpg?v=1674916448&width=1946",
+      "rating": "10",
+      "comment": "Low-key the best ramen.",
+      "id": 6
     }
   ]
 }
